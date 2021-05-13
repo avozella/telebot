@@ -1,0 +1,32 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: CI
+
+on:
+  push:
+    branches:
+    - master
+  #pull_request:
+  #  branches: [ master ]
+jobs:
+  snyk:
+   runs-on: ubuntu-latest
+   steps:
+    - uses: actions/checkout@v2
+    - run: docker build -t bot/test .
+    - name: Snyk scan on Docker image
+      continue-on-error: true
+      uses: snyk/actions@0.3.0
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
+      with:
+        image: bot/test
+        args: --file=Dockerfile    
+    - name: Snyk scan requirements.txt
+      uses: snyk/actions@0.3.0
+      continue-on-error: true
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
+      with:
+        args: --file=requirements.txt --package-manager=pip
