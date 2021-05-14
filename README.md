@@ -1,12 +1,27 @@
-# telebot
-Instalación local:
-Previously you have to add your bot token on /src/credentials.py
+# Telebot
 
-1) On terminal, you have to run "pip install -r requirements.txt"
-2) Then, run "python /src/app.py"
+## Before install
+Previously you have to add your token bot on /src/credentials.py
 
-#Build with Docker
-"docker build -t imagename:tag ."
+## Install locally
 
-#Run image
+On terminal, run:
+```bash
+pip install -r requirements.txt
+python /src/app.py
+```
+## Build with Docker
+```bash
+"docker build -t imagename:tag .
+```
+## Run image
+```bash
 docker run -d imagename:tag
+```
+
+## Checklist
+
+- [x] Template with Docker
+- [ ] Integration with Github Actions
+- [ ] Integration with Trend API
+- [ ] Integration with CVE feeds
