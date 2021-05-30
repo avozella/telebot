@@ -39,9 +39,9 @@ def create_jwt_token(appication_id, api_key, http_method, raw_url, headers, requ
 def udso_list():
     domain_type = str(input("Ingrese Dominio: "))
     content_filter = str(input("Ingrese Filtro: "))
-    use_url_base = 'https://192.168.223.110' 
-    use_application_id = 'BF347594-B43B-4542-BCFE-8E90CAED4495'
-    use_api_key = '255DCA8C-2EBC-412A-A723-4B817775B9DF'
+    use_url_base = 'SERVER_NAME' 
+    use_application_id = 'Application_ID'
+    use_api_key = 'API_KEY'
 
     productAgentAPIPath = '/WebApp/api/SuspiciousObjects/UserDefinedSO/'
     canonicalRequestHeaders = ''

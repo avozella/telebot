@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import logging
-import credentials
+import token
 from handler import main
 
 from functions import start, simpsons, help, ping, error, trend
